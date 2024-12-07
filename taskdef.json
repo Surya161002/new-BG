@@ -1,92 +1,90 @@
 {
-    "ipcMode": null,
-    "executionRoleArn": "arn:aws:iam::708995052028:role/ecsTaskExecutionRole",
+    "taskDefinitionArn": "arn:aws:ecs:ap-south-1:975050145640:task-definition/WebAppTaskDefinition:2",
     "containerDefinitions": [
         {
-            "dnsSearchDomains": null,
-            "environmentFiles": null,
-            "logConfiguration": null,
-            "entryPoint": null,
+            "name": "angular",
+            "image": "<IMAGE1_NAME>",
+            "cpu": 0,
             "portMappings": [
                 {
-                    "hostPort": 0,
+                    "name": "angular-80-tcp",
+                    "containerPort": 80,
+                    "hostPort": 80,
                     "protocol": "tcp",
-                    "containerPort": 8080
+                    "appProtocol": "http"
                 }
             ],
-            "command": null,
-            "linuxParameters": null,
-            "cpu": 0,
-            "environment": [],
-            "resourceRequirements": null,
-            "ulimits": null,
-            "dnsServers": null,
-            "mountPoints": [],
-            "workingDirectory": null,
-            "secrets": null,
-            "dockerSecurityOptions": null,
-            "memory": 128,
-            "memoryReservation": null,
-            "volumesFrom": [],
-            "stopTimeout": null,
-            "image": "<IMAGE1_NAME>",
-            "startTimeout": null,
-            "firelensConfiguration": null,
-            "dependsOn": null,
-            "disableNetworking": null,
-            "interactive": null,
-            "healthCheck": null,
             "essential": true,
-            "links": null,
-            "hostname": null,
-            "extraHosts": null,
-            "pseudoTerminal": null,
-            "user": null,
-            "readonlyRootFilesystem": null,
-            "dockerLabels": null,
-            "systemControls": null,
-            "privileged": null,
-            "name": "ecs-blue-green-update-container"
+            "environment": [],
+            "environmentFiles": [],
+            "mountPoints": [],
+            "volumesFrom": [],
+            "ulimits": [],
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/WebAppTaskDefinition",
+                    "mode": "non-blocking",
+                    "awslogs-create-group": "true",
+                    "max-buffer-size": "25m",
+                    "awslogs-region": "ap-south-1",
+                    "awslogs-stream-prefix": "ecs"
+                },
+                "secretOptions": []
+            },
+            "systemControls": []
         }
     ],
-    "placementConstraints": [],
-    "memory": "150",
-    "taskRoleArn": "arn:aws:iam::708995052028:role/ecsTaskExecutionRole",
-    "compatibilities": [
-        "EXTERNAL",
-        "EC2"
-    ],
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:708995052028:task-definition/ecs-td-blue-green:1",
-    "family": "ecs-td-blue-green",
+    "family": "WebAppTaskDefinition",
+    "executionRoleArn": "arn:aws:iam::975050145640:role/ecsTaskExecutionRole",
+    "networkMode": "awsvpc",
+    "revision": 2,
+    "volumes": [],
+    "status": "ACTIVE",
     "requiresAttributes": [
         {
-            "targetId": null,
-            "targetType": null,
-            "value": null,
+            "name": "com.amazonaws.ecs.capability.logging-driver.awslogs"
+        },
+        {
+            "name": "ecs.capability.execution-role-awslogs"
+        },
+        {
             "name": "com.amazonaws.ecs.capability.ecr-auth"
         },
         {
-            "targetId": null,
-            "targetType": null,
-            "value": null,
-            "name": "com.amazonaws.ecs.capability.task-iam-role"
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.19"
         },
         {
-            "targetId": null,
-            "targetType": null,
-            "value": null,
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.28"
+        },
+        {
             "name": "ecs.capability.execution-role-ecr-pull"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.18"
+        },
+        {
+            "name": "ecs.capability.task-eni"
+        },
+        {
+            "name": "com.amazonaws.ecs.capability.docker-remote-api.1.29"
         }
     ],
-    "pidMode": null,
-    "requiresCompatibilities": [
-        "EC2"
+    "placementConstraints": [],
+    "compatibilities": [
+        "EC2",
+        "FARGATE"
     ],
-    "networkMode": null,
-    "cpu": "200",
-    "revision": 1,
-    "status": "ACTIVE",
-    "inferenceAccelerators": null,
-    "proxyConfiguration": null,
-    "volumes": []
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "1024",
+    "memory": "3072",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "registeredAt": "2024-12-07T18:21:36.812Z",
+    "registeredBy": "arn:aws:iam::975050145640:root",
+    "tags": []
 }
